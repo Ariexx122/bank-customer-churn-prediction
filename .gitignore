@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# data
+data/
+
+# Machine Learning Models and Logs
+*.cbm
+catboost_info/
+
 # Distribution / packaging
 .Python
 build/
