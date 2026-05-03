@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BankGuard — Churn Prediction</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Bank<span>Guard</span></div>
+      <div class="header-tag">Risk Assessment Tool</div>
+    </header>
+
+    <div class="hero">
+      <h1>Retention <em>Intelligence</em></h1>
+      <p class="hero-sub">
+        Predict customer churn using advanced ML. Enter account metrics to
+        assess loyalty risk.
+      </p>
+    </div>
+
+    <main>
+      <section class="form-panel">
+        <div class="section-title">
+          Customer Profile <span class="count">11 Parameters</span>
+        </div>
+
+        <form id="churn-form">
+          <div class="form-group">
+            <div class="group-title">Demographics</div>
+            <div class="form-grid">
+              <div class="field">
+                <label>Geography</label>
+                <select name="geography" required>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Spain">Spain</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Gender</label>
+                <select name="gender" required>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Age</label>
+                <input
+                  type="number"
+                  name="age"
+                  min="18"
+                  max="100"
+                  placeholder="40"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="group-title">Financial Standing</div>
+            <div class="form-grid">
+              <div class="field">
+                <label>Credit Score</label>
+                <input
+                  type="number"
+                  name="creditscore"
+                  min="300"
+                  max="850"
+                  placeholder="600"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label>Balance (€)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  name="balance"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label>Estimated Salary (€)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  name="estimatedsalary"
+                  placeholder="50000"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="group-title">Account Activity</div>
+            <div class="form-grid">
+              <div class="field">
+                <label>Tenure (Years)</label>
+                <input
+                  type="number"
+                  name="tenure"
+                  min="0"
+                  max="10"
+                  placeholder="5"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label>Number of Products</label>
+                <select name="numofproducts" required>
+                  <option value="1">1 Product</option>
+                  <option value="2">2 Products</option>
+                  <option value="3">3 Products</option>
+                  <option value="4">4 Products</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Has Credit Card?</label>
+                <select name="hascrcard" required>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Is Active Member?</label>
+                <select name="isactivemember" required>
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" id="submit-btn">Run Risk Analysis</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="result-panel">
+        <div id="idle-state" class="state-container">
+          <p>Enter data to generate risk score</p>
+        </div>
+
+        <div id="loading-state" class="state-container hidden">
+          <div class="spinner"></div>
+          <p class="loading-main">Consulting Risk Model...</p>
+          <p class="loading-sub">
+            Initializing secure server connection. Initial requests may take a
+            moment to process.
+          </p>
+        </div>
+
+        <div id="result-state" class="state-container hidden">
+          <div class="risk-meter">
+            <span class="risk-label">Churn Probability</span>
+            <h2 id="prediction-text">Low Risk</h2>
+            <div class="probability-bar"><div id="probability-fill"></div></div>
+            <p id="probability-value">0%</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
