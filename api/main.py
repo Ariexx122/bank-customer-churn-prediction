@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://bank-customer-churn-prediction-tau.vercel.app"],
     allow_headers=["*"],
     allow_methods=["*"],
     allow_credentials=True
