@@ -2,7 +2,7 @@ fastapi==0.135.1
 uvicorn==0.42.0
 gunicorn
 pydantic==2.12.5
-pandas==2.1.0
+pandas
 joblib==1.5.3
 scikit-learn==1.5.0
 imbalanced-learn
